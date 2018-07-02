@@ -1,5 +1,14 @@
 local utils = {}
 
+utils.alphabet = {"B","C","D","E","F","G","H","I","J","K","L","M","N",
+  "O","P","Q","R","S","T","U","V","W","X","Y","Z"}
+utils.alphabet[0] = "A"
+
+utils.alphanum = {}
+for i = 0, #utils.alphabet do
+  utils.alphanum[utils.alphabet[i]] = i
+end
+
 utils.monograms = {}
 local monogramLines = io.lines("assets/english_monograms.txt")
 for line in monogramLines do
@@ -19,7 +28,7 @@ end
 function utils.monogramScore(t)
   t = utils.processText(t)
   local fitness = 0
-  for c in t:gmatch"%W" do
+  for c in t:gmatch"." do
     fitness = fitness + utils.monograms[c]
   end
   return fitness

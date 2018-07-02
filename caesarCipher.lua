@@ -1,41 +1,41 @@
 local caesar = {}
 
 function caesar.getKey(utils, ct)
+    ct = utils.processText(ct)
     
     local bestScore = utils.monogramScore(ct)
     local bestDec = ct
-    local bestkey = 0
+    local bestKey = 0
     
     for i = 1, 25 do
-        ct = caesar.solveWithKey("1", ct)
-        print(ct)
-        local thisScore = utils.monogramScore(ct)
+        local thisDec = caesar.solveWithKey(utils, tonumber(i), ct)
+        local thisScore = utils.monogramScore(thisDec)
         if thisScore > bestScore then
-            print(ct)
             bestScore = thisScore
             bestDec = ct
             bestKey = i
         end
     end
+    
     return tostring(bestKey)
 end
 
-function caesar.solveWithKey(key, ct)
+function caesar.solveWithKey(utils, key, ct)
+    ct = utils.processText(ct)
     local dec = ""
-    local keyNum = tonumber(key)
-    print(keyNum)
-    for c in ct:gmatch"." do
-        local newChar = string.byte(c) + keyNum
-        if newChar > string.byte("0") then
-            newChar = newChar - 26
+    local newDec = ""
+    for i = 1, tonumber(key) do
+        for c in ct:gmatch"." do
+            dec = dec .. utils.alphabet[(utils.alphanum[c] + 1) % 26]
         end
-        dec = dec .. string.char(newChar)
+        ct = dec
+        dec = ""
     end
-    return dec
+    return ct
 end
 
 function caesar.crack(utils, ct)
-    return caesar.solveWithKey(caesar.getKey(utils, ct), ct)
+    return caesar.solveWithKey(utils, caesar.getKey(utils, ct), ct)
 end
 
 return caesar
