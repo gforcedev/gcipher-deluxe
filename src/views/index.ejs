@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title><%= title %></title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+      <link rel="stylesheet" href="./stylesheets/style.css" type="text/css" />
+      <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+      <script
+         src="https://code.jquery.com/jquery-3.3.1.min.js"
+         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+         crossorigin="anonymous"></script>
+      <script type="text/javascript" src="./javascript/main.js"></script>
+   </head>
+   <body>
+      <div class="tabs is-fullwidth">
+         <ul>
+            <li class="is-active cipher-tab" value="caesar"><a>Caesar Shift</a></li>
+            <li class="cipher-tab" value="monosub"><a>Monoalphabetic Substitution</a></li>
+            <li class="cipher-tab" value="railfence"><a>Railfence</a></li>
+            <li class="cipher-tab" value="vigenere"><a>Vigenere</a></li>
+         </ul>
+      </div>
+      <div class="container">
+         <div class="columns">
+            <div class="column is-multiline is-half">
+               <article class="message is-info">
+                  <div class="message-header">
+                     <p>Cipher Text</p>
+                  </div>
+                  <div id="cipher-text-input" spellcheck="false" class="message-body edit-div" contenteditable="true">
+                  </div>
+               </article>
+            </div>
+            <div class="column is-multiline is-half">
+               <article class="message is-success">
+                  <div class="message-header">
+                     <p>Plain Text</p>
+                  </div>
+                  <div id="plain-text-output" spellcheck="false" class="message-body edit-div" contenteditable="true">
+                  </div>
+               </article>
+            </div>
+         </div>
+         <button id="submit" class="button is-info">Crack</button>
+         <button id="word-guess" class="button is-info">Insert Spaces</button>
+      </div>
+</html>

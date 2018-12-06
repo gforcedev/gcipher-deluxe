@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+    
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+    </script>
+    
+    <script type="text/javascript" src="./javascript/main.js"></script>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title is-1">Gcipher-Challege</h1>
+        I rewrote it...
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="select">
+          <select id="cipher-select">
+            <option value="caesar">Caesar Cipher</option>
+            <option value="monosub">Monoalphabetic Substitution Cipher</option>
+          </select>
+        </div>
+        <textarea class="textarea" placeholder="The ciphertext"></textarea>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <button id="submit">Crack</button>
+        <div class="result"></div>
+      </div>
+    </section>
+  </body>
+</html>
