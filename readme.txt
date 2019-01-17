@@ -6,3 +6,5 @@ Currently, only Caesar and Vigenere are fully functional, as well as the word gu
 Known issues:
   - posts can happen in any order
   - monoalphabetic sub takes a long time, and isn't very reliable.
+
+Word guessing python is from https://norvig.com/ngrams/ used under the MIT license. (https://opensource.org/licenses/mit-license.php)
